@@ -1,0 +1,72 @@
+<div class="container" >
+    <div class="card">
+        <div class="form">
+            <div class="left-side">
+                <div class="left-heading">
+                    <h3>appointment
+                    </h3>
+                </div>
+                <div class="steps-content">
+                    <p class="step-number-content active">Enter your personal information to make an appointment.</p>
+                   
+                </div>
+                
+                
+
+                
+            </div>
+            <form  #f="ngForm" (ngSubmit)="rdv(f)">
+
+            <div class="right-side" >
+                <div class="main active"   >
+                    <small><i class="fa fa-smile-o"></i></small>
+                    <div class="text">
+                        <h2>Your Personal Information</h2>
+                        <p>plz inter your illness to notify the doctor of ur problem  to make an appointment.</p>
+                    </div>
+                   <div *ngFor="let dataitem of user">
+                    <div class="input-text">
+                        <div class="input-div"> 
+                            <input type="text" required disabled id="user_name" value="{{dataitem.username}}" ngModel>
+                            
+                        </div>
+                        <div class="input-div"> 
+                            <input type="text" required disabled value="{{dataitem.userLastname}}" ngModel>
+                        </div>
+                    </div>
+                    <div class="input-text">
+                        <div class="input-div">
+                            <input type="text" required disabled value="{{dataitem.useremail}}" ngModel>
+                        </div>
+                        <div class="input-div">
+                            <input type="text" required disabled value="{{dataitem.usersexe}}"   ngModel >
+                        </div>
+                    </div>
+                   </div>
+                    <div class="input-text">
+                        <div class="input-div" >
+                            <select class="form-select" aria-label="Default select example" name="date" ngModel>
+                                <option selected disabled>Select a date</option>
+                                <option *ngFor="let dataitem of date" value="{{dataitem.date}}">{{dataitem.date}}</option>
+                              </select>
+                        </div>
+                        <div class="input-div"> 
+                            <input type="text" required ngModel name="subject">
+                            <span>Subject</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Validate</button> &nbsp;&nbsp;
+                    <button type="reset" class="btn btn-danger" routerLink="/infermier">Cancel</button>
+                </div>
+                       
+           
+
+            
+
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+

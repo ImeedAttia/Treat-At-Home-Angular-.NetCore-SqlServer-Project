@@ -1,0 +1,77 @@
+<div  style=" justify-content: center; display: flex;  flex: 0 0 33.333333%; display: flex;
+flex-wrap: wrap;
+padding-left: 0; display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;" >
+ 
+ 
+ 
+ 
+    <div class="d-flex " *ngFor="let dataitem of listInfer" > 
+    <div *ngIf="dataitem.UserRole == 'infer_aux'" >
+      <figure class="card card-product-grid card-lg" >
+        <a routerLink="" class="img-wrap" data-abc="true"> <img src={{this.uservice.PhotoUrl+dataitem.userPathImg}}> </a>
+         <figcaption class="info-wrap">
+             <div class="row">
+                 <div class="col-md-9 col-xs-9"> <a  class="title" data-abc="true"> {{dataitem.username}}  {{dataitem.userLastname}}</a></div>
+                
+             </div>
+            
+         </figcaption>
+         <div class="bottom-wrap-payment">
+             <figcaption class="info-wrap">
+                 <div class="row">
+                     <div class="col-md-9 col-xs-9"> <a  class="title" data-abc="true">
+                         
+                     <div class="container">
+   <div class="row">
+     <div class="col">
+     <span class="rateded">Country  </span>
+     </div>
+ 
+   </div>
+   <div class="row">
+     <div class="col">
+       De  {{dataitem.usercountry}}
+     </div>
+ 
+   
+   </div>
+ </div>
+                     
+                     
+                     
+                     
+                        </a>  </div>
+                    
+                 </div>
+             </figcaption>
+         </div>
+         
+         <div class="bottom-wrap"> <a routerLink="/details/{{dataitem.UserId}}" class="btn btn-primary float-right" data-abc="true" > consult now </a>
+            
+         </div>
+     </figure>
+    </div>
+    &nbsp;&nbsp;&nbsp; 
+ </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

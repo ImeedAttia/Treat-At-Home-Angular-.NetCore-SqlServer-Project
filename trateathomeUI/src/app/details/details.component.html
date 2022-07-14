@@ -1,0 +1,91 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right" *ngFor="let dataitem of user">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{this.as.PhotoUrl+dataitem.userPathImg}}"></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Doctor</h4>
+                </div>
+                <div class="row mt-2" *ngFor="let dataitem of user">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"  value={{dataitem.username}} disabled></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value={{dataitem.userLastname}}  disabled></div>
+                </div>
+                <div class="row mt-3" *ngFor="let dataitem of user">
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"  value={{dataitem.userPhonenum}} disabled></div>
+                    <div class="col-md-12"><label class="labels">Country</label><input type="text" class="form-control"  value={{dataitem.usercountry}} disabled></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value={{dataitem.useremail}} disabled></div>
+                </div>
+                <br>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Information Doctor</h4>
+                </div>
+               <div *ngFor="let dataitem of info">
+                <div class="row mt-3" >
+                    <div class="col-md-6"><label class="labels">Diplome</label><input type="text" class="form-control"  value={{dataitem.diplome}} disabled></div>
+                    <div class="col-md-6"><label class="labels">Formation</label><input type="text" class="form-control" value={{dataitem.formation}} disabled></div>
+                    <div class="col-md-6"><label class="labels">Langue</label><input type="text" class="form-control" value={{dataitem.langue}} disabled></div>
+                </div>
+                
+                <div class="mt-5 text-center">
+                      
+  <button type="button" class="btn btn-primary profile-button" 
+  data-bs-toggle="modal" data-bs-target="#exampleModal" 
+  data-bs-backdrop="static" data-bs-keyboard="false"
+  (click)="addClick()" >Add Feedback</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary profile-button" type="button" routerLink="/RDV/{{dataitem.id_user}}">Passer Un rondevous</button></div>
+               </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5" >
+                <div class="col-md-12" *ngFor="let dataitem of date"><label class="labels">Date</label><input type="text" class="form-control" value={{dataitem.date}} disabled></div> <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Feedback Request</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          
+          <app-feedback [doc]="doc" *ngIf="ActivateFeedbackComp"></app-feedback> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div  *ngFor="let dataitem of user">
+  <h4>  Les feedback sur   : {{dataitem.username}} {{dataitem.userLastname}}</h4>
+    
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">rate</th>
+        <th scope="col">message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataitem of feed">
+        <td>{{dataitem.rate}}</td>
+        <td>{{dataitem.message}}</td>
+      </tr>
+
+    </tbody>
+  </table>

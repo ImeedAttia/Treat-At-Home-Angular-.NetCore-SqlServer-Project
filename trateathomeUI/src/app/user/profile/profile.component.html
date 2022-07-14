@@ -1,0 +1,88 @@
+<section class="vh-600" style="background-color: #f4f5f7;" *ngFor="let dataitem of user">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-12 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img src={{this.service.PhotoUrl+dataitem.userPathImg}}
+                  alt="Avatar" class="img-fluid my-5" style="width: 120px;" />
+                <h5>{{dataitem.username}}</h5>
+                <p>{{dataitem.userLastname}}</p>
+                
+                <div class="mb-3">
+                  <input class="form-control" (click)="verify()" (change)="uploadPhoto($event)" type="file" id="formFile">
+                  <br>
+                  <button (click)="addArt(dataitem)"   *ngIf="show"  class="btn btn-primary">
+                    Add
+                </button>
+                </div>
+               
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">{{dataitem.useremail}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Phone</h6>
+                      <p class="text-muted">{{dataitem.userPhonenum}}</p>
+                    </div>
+                  </div>
+                  <h6>About you</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Your Sexe</h6>
+                      <p class="text-muted">{{dataitem.usersexe}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Your Country</h6>
+                      <p class="text-muted">{{dataitem.usercountry}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<div *ngIf="this.role == 'infer_aux' ">
+  <div class="col-md-5 border-right">
+    <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Information Doctor</h4>
+        </div>
+       <div *ngFor="let dataitem of info">
+        <div class="row mt-3" >
+            <div class="col-md-6"><label class="labels">Diplome</label><input type="text" class="form-control"  value={{dataitem.diplome}} disabled></div>
+            <div class="col-md-6"><label class="labels">Formation</label><input type="text" class="form-control" value={{dataitem.formation}} disabled></div>
+            <div class="col-md-6"><label class="labels">Langue</label><input type="text" class="form-control" value={{dataitem.langue}} disabled></div>
+        </div>
+        
+        
+    </div>
+    
+</div>
+
+</div>
+<div class="col-md-4">
+  <div class="p-3 py-5" >
+      <div class="col-md-12" *ngFor="let dataitem of date"><label class="labels">Date</label><input type="text" class="form-control" value={{dataitem.date}} disabled></div> <br>
+      <form  #f="ngForm" (ngSubmit)="ajouter(f)">
+       <input type="datetime" name="date" class="form-control" ngModel required>
+        <button type="submit" class="btn btn-primary">add date</button>
+      </form>
+    
+  </div>
+</div>
+</div>
+

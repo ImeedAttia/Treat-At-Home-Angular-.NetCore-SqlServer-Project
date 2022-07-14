@@ -1,0 +1,11 @@
+.lead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  justify-content: center;
+  align-items: center;
+}
+.card-text{
+    font-size:xx-large;
+}

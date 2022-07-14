@@ -1,0 +1,41 @@
+
+  
+  
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="change('User')">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  (click)="change('RDV')">RDV</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  (click)="change('FeedBack')">FeedBack</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+    <app-user-show *ngIf="vaariable == 'User'"></app-user-show>
+    <app-user-feedback *ngIf="vaariable == 'FeedBack'"></app-user-feedback>
+    <app-user-rdv *ngIf="vaariable == 'RDV'"></app-user-rdv>
+    
+  

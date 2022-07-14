@@ -1,0 +1,151 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" routerLink="/">
+      <img
+        src="../assets/logo.png"
+        height="60"
+        alt="MDB Logo"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />TrateAtHome
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="profile" *ngIf="isUserAuthenticated()">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Admin"  *ngIf="isUserAuthenticated() && role()">Admin Page</a>
+        </li>
+     
+      <!-- Left links -->
+
+      <div class="d-flex align-items-center">
+     
+        <button type="button" class="btn btn-link px-3 me-2" routerLink="Login" *ngIf="!isUserAuthenticated()"  >Login
+        </button>	&nbsp;
+        <button type="button" class="btn btn-warning" routerLink="Login" *ngIf="isUserAuthenticated()" (click)="logout()">Logout
+        </button>	&nbsp;
+        <button type="button" class="btn btn-primary me-3" routerLink="Register" *ngIf="!isUserAuthenticated()">
+          Sign up
+        </button>
+        
+      </div>
+
+    </ul>
+
+
+
+
+
+       <!-- Topbar Navbar -->
+       <ul class="navbar-nav ml-auto">
+        <!-- Nav Item - Alerts -->
+        <li class="nav-item dropdown no-arrow mx-1">      
+                <a class="dropdown-item text-center small text-gray-500" routerLink="Notification">
+                  <i class="fas fa-bell fa-fw"></i>
+                </a> 
+        </li>     
+    </ul>
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+<router-outlet></router-outlet>
+
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+       
+
+       
+
+       
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> Beja ,9000</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            contact@treatathome.com          </p>
+          <p><i class="fas fa-phone me-3"></i> + 216 27 595 434</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="">TreatAtHome.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
